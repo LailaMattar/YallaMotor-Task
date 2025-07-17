@@ -47,11 +47,11 @@ class CarSpecificationsSection extends StatelessWidget {
         ),
         SizedBox(height: 16.h),
         CarSpecRow(label: 'Transmission', value: car.transmission),
-        CarSpecRow(label: 'Engine CC', value: '2900cc'), // Mock data
+        CarSpecRow(label: 'Engine CC', value: car.engineCC),
         CarSpecRow(label: 'Mileage', value: '${car.mileage} km'),
         CarSpecRow(label: 'Color', value: car.color),
-        CarSpecRow(label: 'Seats', value: '5'), // Mock data
-        CarSpecRow(label: 'Doors', value: '5'), // Mock data
+        CarSpecRow(label: 'Seats', value: car.seats),
+        CarSpecRow(label: 'Doors', value: car.doors),
       ],
     );
   }

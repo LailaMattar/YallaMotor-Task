@@ -23,7 +23,7 @@ class CarSellerSection extends StatelessWidget {
           ),
           SizedBox(height: 12.h),
           Text(
-            'Linda Cars',
+            car.sellerName.isNotEmpty ? car.sellerName : 'Unknown Seller',
             style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 4.h),

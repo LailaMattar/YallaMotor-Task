@@ -6,6 +6,7 @@ A responsive Flutter car listing application that displays used cars with detail
 
 ### ✅ Core Requirements
 - **Car List Display**: Grid layout for tablets/desktop, list layout for mobile devices
+- **Tabbed Interface**: Two tabs for 'Used Cars' and 'Featured Cars' with separate data sources
 - **Reusable CarCard Component**: Displays car image, title, price, year, location, and basic info
 - **Car Details Screen**: Full car information with image carousel, specifications, and contact options
 - **Responsive Design**: Optimized for both iOS and Android with different layouts based on screen size
@@ -109,7 +110,11 @@ The app loads car data from `assets/data/data-2.json` with the following structu
   "transmission": "Automatic",
   "pictures": ["url1", "url2"],
   "description": "HTML description content",
-  "whatsapp_number": "+971501234567"
+  "whatsapp_number": "+971501234567",
+  "seller_name": "Auto Central",
+  "doors": "4",
+  "seats": 5,
+  "engine_cc": 2900
 }
 ```
 
@@ -121,15 +126,17 @@ The app loads car data from `assets/data/data-2.json` with the following structu
 - **Adaptive UI**: Uses ScreenUtil for consistent sizing across devices
 
 ### Car List Page
-- Pull-to-refresh functionality
-- Loading states with proper error handling
-- Empty state with user guidance
-- Smooth navigation to details
+- **Tabbed Navigation**: Switch between 'Used Cars' and 'Featured Cars'
+- **Pull-to-refresh functionality** (pull down the screen to refresh data)
+- **Loading states** with proper error handling
+- **Empty state** with user guidance
+- **Smooth navigation** to details
 
 ### Car Details Page
 - Image carousel for multiple car photos
-- Comprehensive car specifications
+- Comprehensive car specifications (transmission, engine CC, seats, doors, etc.)
 - Favorite toggle with visual feedback
+- Dynamic seller information from JSON data
 - WhatsApp contact button with automatic phone number formatting
 - HTML description rendering
 
@@ -150,6 +157,7 @@ flutter test
 
 ### ✅ Completed
 - [x] Display list of cars with reusable CarCard component
+- [x] Tabbed interface for Used Cars and Featured Cars
 - [x] Car details screen with full information
 - [x] Responsive design for mobile and tablet
 - [x] Pull-to-refresh functionality
@@ -160,6 +168,7 @@ flutter test
 - [x] Image carousel
 - [x] Local JSON data loading
 - [x] WhatsApp contact integration with URL launcher
+- [x] Dynamic car specifications (doors, seats, engine CC)
 
 ### 🔄 Future Enhancements
 - [ ] Search and filter functionality

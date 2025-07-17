@@ -18,6 +18,16 @@ class CarRepositoryImpl implements CarRepository {
   }
 
   @override
+  Future<List<CarEntity>> getFeaturedCars() async {
+    try {
+      final featuredCars = await localDataSource.getFeaturedCars();
+      return featuredCars;
+    } catch (e) {
+      throw Exception('Failed to get featured cars: $e');
+    }
+  }
+
+  @override
   Future<CarEntity> updateCarFavoriteStatus(String carId, bool isFavorite) async {
     try {
       final updatedCar = await localDataSource.updateCarFavoriteStatus(carId, isFavorite);

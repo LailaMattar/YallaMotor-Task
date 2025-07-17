@@ -18,6 +18,10 @@ class CarModel extends CarEntity {
     required super.pictures,
     required super.description,
     required super.whatsappNumber,
+    required super.sellerName,
+    required super.doors,
+    required super.seats,
+    required super.engineCC,
   });
 
   factory CarModel.fromJson(Map<String, dynamic> json) {
@@ -35,6 +39,41 @@ class CarModel extends CarEntity {
     // Keep the raw HTML description for rendering with flutter_widget_from_html
     String description = json['description'] ?? '';
 
+    // Parse doors - convert to string, handle null/0 values
+    String doors = '';
+    if (json['doors'] != null) {
+      doors = json['doors'].toString();
+      if (doors == '0' || doors == 'null') {
+        doors = 'N/A';
+      }
+    } else {
+      doors = 'N/A';
+    }
+
+    // Parse seats - convert to string, handle null/0 values
+    String seats = '';
+    if (json['seats'] != null) {
+      seats = json['seats'].toString();
+      if (seats == '0' || seats == 'null') {
+        seats = 'N/A';
+      }
+    } else {
+      seats = 'N/A';
+    }
+
+    // Parse engine CC - convert to string, handle null/0 values
+    String engineCC = '';
+    if (json['engine_cc'] != null) {
+      engineCC = json['engine_cc'].toString();
+      if (engineCC == '0' || engineCC == 'null') {
+        engineCC = 'N/A';
+      } else {
+        engineCC = '${engineCC}cc';
+      }
+    } else {
+      engineCC = 'N/A';
+    }
+
     return CarModel(
       id: json['id'].toString(),
       title: json['title'] ?? 'Unknown Car',
@@ -46,12 +85,16 @@ class CarModel extends CarEntity {
       body: json['body_style'] ?? 'Unknown',
       image: json['slideshow_picture'] ?? '',
       isFavorite: false, // Default to false since API doesn't have this
-      mileage: json['mileage'].toString(),
+      mileage: json['km_driven'].toString(),
       color: json['exterior_color'] ?? 'Unknown',
       transmission: json['transmission_type'] ?? 'Automatic',
       pictures: picturesList,
       description: description,
       whatsappNumber: json['whatsapp_number'] ?? '',
+      sellerName: json['seller_name'] ?? 'Unknown Seller',
+      doors: doors,
+      seats: seats,
+      engineCC: engineCC,
     );
   }
 
@@ -79,6 +122,10 @@ class CarModel extends CarEntity {
       'pictures': pictures,
       'description': description,
       'whatsapp_number': whatsappNumber,
+      'seller_name': sellerName,
+      'doors': doors,
+      'seats': seats,
+      'engine_cc': engineCC,
     };
   }
 
@@ -100,6 +147,10 @@ class CarModel extends CarEntity {
       pictures: entity.pictures,
       description: entity.description,
       whatsappNumber: entity.whatsappNumber,
+      sellerName: entity.sellerName,
+      doors: entity.doors,
+      seats: entity.seats,
+      engineCC: entity.engineCC,
     );
   }
 } 

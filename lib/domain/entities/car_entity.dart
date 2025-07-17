@@ -17,6 +17,10 @@ class CarEntity extends Equatable {
   final List<String> pictures;
   final String description;
   final String whatsappNumber;
+  final String sellerName;
+  final String doors;
+  final String seats;
+  final String engineCC;
 
   const CarEntity({
     required this.id,
@@ -35,6 +39,10 @@ class CarEntity extends Equatable {
     required this.pictures,
     required this.description,
     required this.whatsappNumber,
+    required this.sellerName,
+    required this.doors,
+    required this.seats,
+    required this.engineCC,
   });
 
   @override
@@ -55,6 +63,10 @@ class CarEntity extends Equatable {
         pictures,
         description,
         whatsappNumber,
+        sellerName,
+        doors,
+        seats,
+        engineCC,
       ];
 
   CarEntity copyWith({
@@ -74,6 +86,10 @@ class CarEntity extends Equatable {
     List<String>? pictures,
     String? description,
     String? whatsappNumber,
+    String? sellerName,
+    String? doors,
+    String? seats,
+    String? engineCC,
   }) {
     return CarEntity(
       id: id ?? this.id,
@@ -92,6 +108,10 @@ class CarEntity extends Equatable {
       pictures: pictures ?? this.pictures,
       description: description ?? this.description,
       whatsappNumber: whatsappNumber ?? this.whatsappNumber,
+      sellerName: sellerName ?? this.sellerName,
+      doors: doors ?? this.doors,
+      seats: seats ?? this.seats,
+      engineCC: engineCC ?? this.engineCC,
     );
   }
 } 
