@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../core/app_colors.dart';
 import '../../domain/entities/car_entity.dart';
-import '../pages/car_details.dart';
+import '../pages/car_details_page.dart';
 
 class CarCard extends StatelessWidget {
   final String image;

@@ -6,7 +6,6 @@ import '../../core/app_strings.dart';
 import '../../domain/entities/car_entity.dart';
 import '../providers/car_provider.dart';
 import '../widgets/car_card.dart';
-import 'car_details.dart';
 
 class CarListPage extends StatefulWidget {
   const CarListPage({super.key});
@@ -59,7 +58,7 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
       child: LayoutBuilder(
         builder: (context, constraints) {
           // Use responsive breakpoint for tablets and desktop
-          bool isTabletOrDesktop = constraints.maxWidth > 768;
+          bool isTabletOrDesktop = constraints.maxWidth > 600;
           
           if (isTabletOrDesktop) {
             // Grid layout for tablets and desktop
