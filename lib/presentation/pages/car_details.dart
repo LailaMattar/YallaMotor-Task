@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import '../../core/app_colors.dart';
 import '../../core/app_strings.dart';
 import '../../domain/entities/car_entity.dart';
 import '../providers/car_provider.dart';
@@ -56,7 +57,7 @@ class CarDetailsPage extends StatelessWidget {
                 : AppStrings.addedToFavorites,
           ),
           duration: const Duration(seconds: 2),
-          backgroundColor: isInFavorites ? Colors.grey : Colors.green,
+          backgroundColor: isInFavorites ? AppColors.snackBarNeutral : AppColors.snackBarSuccess,
         ),
       );
     } catch (e) {
@@ -64,7 +65,7 @@ class CarDetailsPage extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(AppStrings.failedToUpdateFavoriteStatus),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.snackBarError,
         ),
       );
     }
@@ -87,7 +88,7 @@ class CarDetailsPage extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(AppStrings.carDetails, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp,)),
-            backgroundColor: Colors.white,
+            backgroundColor: AppColors.background,
             leading: IconButton(
               icon: Icon(Icons.arrow_back, size: 16.sp), // Set your desired size here
               onPressed: () {
@@ -95,12 +96,12 @@ class CarDetailsPage extends StatelessWidget {
               },
             ),
             elevation: 0,
-            foregroundColor: Colors.black,
+                          foregroundColor: AppColors.textPrimary,
             actions: [
               IconButton(
                 icon: Icon(
                   updatedCar.isFavorite ? Icons.favorite : Icons.favorite_border,
-                  color: updatedCar.isFavorite ? Colors.red : Colors.grey,
+                  color: updatedCar.isFavorite ? AppColors.iconFavorite : AppColors.iconUnfavorite,
                   size: 28.h,
                 ),
                 onPressed: () => _toggleFavorite(context),

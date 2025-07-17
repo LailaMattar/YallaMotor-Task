@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import '../../core/app_colors.dart';
 import '../../domain/entities/car_entity.dart';
 import '../pages/car_details.dart';
 
@@ -64,7 +65,7 @@ class CarCard extends StatelessWidget {
                       width: double.infinity,
                       height: isInGrid ? 200.h : 300.h,
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: AppColors.placeholderBackground,
                         borderRadius: BorderRadius.circular(8.r),
                       ),
                       child: Stack(
@@ -84,7 +85,7 @@ class CarCard extends StatelessWidget {
                                     child: Icon(
                                       Icons.directions_car,
                                       size: 40.w,
-                                      color: Colors.grey,
+                                      color: AppColors.placeholderIcon,
                                     ),
                                   ),
                                 )
@@ -92,7 +93,7 @@ class CarCard extends StatelessWidget {
                                   child: Icon(
                                     Icons.directions_car,
                                     size: 40.w,
-                                    color: Colors.grey,
+                                    color: AppColors.placeholderIcon,
                                   ),
                                 ),
                           Positioned(
@@ -101,12 +102,12 @@ class CarCard extends StatelessWidget {
                             child: IconButton(
                               icon: Icon(
                                 isFavorite ? Icons.favorite : Icons.favorite_border,
-                                color: isFavorite ? Colors.red : Colors.white,
+                                color: isFavorite ? AppColors.iconFavoriteOnCard : AppColors.iconUnfavoriteOnCard,
                                 size: 13.w,
                               ),
                               onPressed: onFavoriteToggle,
                               style: IconButton.styleFrom(
-                                backgroundColor: Colors.black26,
+                                backgroundColor: AppColors.overlay,
                                 shape: const CircleBorder(),
                               ),
                             ),
@@ -123,30 +124,30 @@ class CarCard extends StatelessWidget {
                   SizedBox(height: 5.h),
                   Text(
                     price,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp, color: const Color(0xFF2986F6)),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp, color: AppColors.primary),
                   ),
                   SizedBox(height: 10.h),
                   Row(
                     children: [
-                      Icon(Icons.calendar_today, size: 11.w, color: Colors.black54),
+                      Icon(Icons.calendar_today, size: 11.w, color: AppColors.iconSecondary),
                       SizedBox(width: 4.w),
-                      Text(year, style: TextStyle(color: Colors.black87, fontSize: 10.sp)),
+                      Text(year, style: TextStyle(color: AppColors.textSecondary, fontSize: 10.sp)),
                       SizedBox(width: 13.w),
-                      Icon(Icons.location_on,size: 11.w, color: Colors.black54),
+                      Icon(Icons.location_on,size: 11.w, color: AppColors.iconSecondary),
                       SizedBox(width: 4.w),
-                      Text(location, style: TextStyle(color: Colors.black87, fontSize: 10.sp)),
+                      Text(location, style: TextStyle(color: AppColors.textSecondary, fontSize: 10.sp)),
                     ],
                   ),
                   SizedBox(height: 8.h),
                   Row(
                     children: [
-                      Icon(Icons.local_gas_station, size: 11.w, color: Colors.black54),
+                      Icon(Icons.local_gas_station, size: 11.w, color: AppColors.iconSecondary),
                       SizedBox(width: 4.w),
-                      Text(fuel, style: TextStyle(color: Colors.black87, fontSize: 10.sp)),
+                      Text(fuel, style: TextStyle(color: AppColors.textSecondary, fontSize: 10.sp)),
                       SizedBox(width: 13.w),
-                      Icon(Icons.directions_car, size: 11.w, color: Colors.black54),
+                      Icon(Icons.directions_car, size: 11.w, color: AppColors.iconSecondary),
                       SizedBox(width: 4.w),
-                      Text(body, style: TextStyle(color: Colors.black87, fontSize: 10.sp)),
+                      Text(body, style: TextStyle(color: AppColors.textSecondary, fontSize: 10.sp)),
                     ],
                   ),
                 ],

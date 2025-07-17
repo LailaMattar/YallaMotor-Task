@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import '../../core/app_colors.dart';
 import '../../core/app_strings.dart';
 import '../../domain/entities/car_entity.dart';
 import '../providers/car_provider.dart';
@@ -53,8 +54,8 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
   Widget _buildCarList(List<CarEntity> cars, CarProvider carProvider) {
     return RefreshIndicator(
       onRefresh: _onRefresh,
-      color: const Color(0xFF2986F6),
-      backgroundColor: Colors.white,
+      color: AppColors.refreshIndicator,
+      backgroundColor: AppColors.background,
       child: LayoutBuilder(
         builder: (context, constraints) {
           // Use responsive breakpoint for tablets and desktop
@@ -126,8 +127,8 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
   Widget _buildEmptyState(String message, String subtitle) {
     return RefreshIndicator(
       onRefresh: _onRefresh,
-      color: const Color(0xFF2986F6),
-      backgroundColor: Colors.white,
+      color: AppColors.refreshIndicator,
+      backgroundColor: AppColors.background,
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: SizedBox(
@@ -139,7 +140,7 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
                 Icon(
                   Icons.directions_car_outlined,
                   size: 64.w,
-                  color: Colors.grey,
+                  color: AppColors.placeholderIcon,
                 ),
                 SizedBox(height: 16.h),
                 Text(
@@ -154,7 +155,7 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
                   subtitle,
                   style: TextStyle(
                     fontSize: 14.sp,
-                    color: Colors.grey[600],
+                    color: AppColors.textMedium,
                   ),
                 ),
               ],
@@ -168,8 +169,8 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
   Widget _buildErrorState() {
     return RefreshIndicator(
       onRefresh: _onRefresh,
-      color: const Color(0xFF2986F6),
-      backgroundColor: Colors.white,
+      color: AppColors.refreshIndicator,
+      backgroundColor: AppColors.background,
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: SizedBox(
@@ -181,14 +182,14 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
                 Icon(
                   Icons.error_outline,
                   size: 64.w,
-                  color: Colors.red,
+                  color: AppColors.error,
                 ),
                 SizedBox(height: 16.h),
                 Text(
                   AppStrings.failedToLoadCars,
                   style: TextStyle(
                     fontSize: 18.sp,
-                    color: Colors.red,
+                    color: AppColors.error,
                   ),
                 ),
                 SizedBox(height: 8.h),
@@ -196,15 +197,15 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
                   AppStrings.pullDownToRefreshOrRetry,
                   style: TextStyle(
                     fontSize: 14.sp,
-                    color: Colors.grey[600],
+                    color: AppColors.textMedium,
                   ),
                 ),
                 SizedBox(height: 16.h),
                 ElevatedButton(
                   onPressed: () => context.read<CarProvider>().loadCurrentTabData(),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF2986F6),
-                    foregroundColor: Colors.white,
+                    backgroundColor: AppColors.buttonPrimary,
+                    foregroundColor: AppColors.buttonPrimaryText,
                     padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.r),
@@ -234,14 +235,14 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
             fontSize: 16.sp,
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.background,
         elevation: 0,
-        foregroundColor: Colors.black,
-        bottom: TabBar(
-          controller: _tabController,
-          labelColor: const Color(0xFF2986F6),
-          unselectedLabelColor: Colors.grey,
-          indicatorColor: const Color(0xFF2986F6),
+        foregroundColor: AppColors.textPrimary,
+                  bottom: TabBar(
+            controller: _tabController,
+            labelColor: AppColors.tabSelected,
+            unselectedLabelColor: AppColors.tabUnselected,
+            indicatorColor: AppColors.tabIndicator,
           labelStyle: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold),
           unselectedLabelStyle: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.normal),
           tabs: const [

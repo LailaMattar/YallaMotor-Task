@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import '../../../core/app_colors.dart';
 import '../../../core/app_strings.dart';
 import '../../../domain/entities/car_entity.dart';
 
@@ -29,7 +30,7 @@ class CarDescriptionSection extends StatelessWidget {
                   car.description,
                   textStyle: TextStyle(
                     fontSize: 14.sp,
-                    color: Colors.black87,
+                    color: AppColors.textSecondary,
                     height: 1.5,
                   ),
                 )
@@ -37,7 +38,7 @@ class CarDescriptionSection extends StatelessWidget {
                   AppStrings.noDescriptionAvailable,
                   style: TextStyle(
                     fontSize: 14.sp,
-                    color: Colors.black87,
+                    color: AppColors.textSecondary,
                     height: 1.5,
                   ),
                 ),

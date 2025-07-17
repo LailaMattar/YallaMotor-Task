@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/app_colors.dart';
 import '../../../core/app_strings.dart';
 import '../../../domain/entities/car_entity.dart';
 
@@ -30,7 +31,7 @@ class CarSellerSection extends StatelessWidget {
           SizedBox(height: 4.h),
           Text(
             car.location,
-            style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+            style: TextStyle(color: AppColors.textLight, fontSize: 12.sp),
           ),
         ],
       ),

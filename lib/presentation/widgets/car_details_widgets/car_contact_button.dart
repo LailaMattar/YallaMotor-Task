@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../core/app_colors.dart';
 import '../../../core/app_strings.dart';
 import '../../../domain/entities/car_entity.dart';
 
@@ -65,7 +66,7 @@ class CarContactButton extends StatelessWidget {
         width: double.infinity,
         child: ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF25D366),
+            backgroundColor: AppColors.buttonWhatsApp,
             padding: EdgeInsets.symmetric(vertical: 16.h),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.r),
@@ -79,7 +80,7 @@ class CarContactButton extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(AppStrings.whatsAppNotInstalled),
-                        backgroundColor: Colors.red,
+                        backgroundColor: AppColors.snackBarError,
                       ),
                     );
                   }
@@ -88,16 +89,16 @@ class CarContactButton extends StatelessWidget {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(AppStrings.noWhatsAppNumber),
-                      backgroundColor: Colors.orange,
+                      backgroundColor: AppColors.snackBarWarning,
                     ),
                   );
                 },
-          icon: Icon(Icons.message, color: Colors.white,size: 14.sp,),
+          icon: Icon(Icons.message, color: AppColors.buttonPrimaryText,size: 14.sp,),
           label: Text(
             car.whatsappNumber.isNotEmpty 
                 ? AppStrings.contactViaWhatsApp
                 : AppStrings.noContactAvailable,
-            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: AppColors.buttonPrimaryText),
           ),
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import '../../../core/app_colors.dart';
 import '../../../core/app_strings.dart';
 
 class CarImageCarousel extends StatefulWidget {
@@ -34,10 +35,10 @@ class _CarImageCarouselState extends State<CarImageCarousel> {
             margin: EdgeInsets.all(16.w),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.r),
-              color: Colors.grey[200],
+              color: AppColors.placeholderBackground,
             ),
-            child: const Center(
-              child: Icon(Icons.directions_car, size: 64, color: Colors.grey),
+                          child: Center(
+                child: Icon(Icons.directions_car, size: 64, color: AppColors.placeholderIcon),
             ),
           );
         }
@@ -56,9 +57,9 @@ class _CarImageCarouselState extends State<CarImageCarousel> {
                 itemBuilder: (context, index) {
                   return Container(
                     margin: EdgeInsets.all(16.w),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.r),
-                      color: Colors.grey[200],
+                                      decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.r),
+                    color: AppColors.placeholderBackground,
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12.r),
@@ -66,18 +67,18 @@ class _CarImageCarouselState extends State<CarImageCarousel> {
                           ? CachedNetworkImage(
                               imageUrl: widget.carImages[index],
                               fit: imageFit,
-                              placeholder: (context, url) => Container(
-                                color: Colors.grey[200],
+                                                          placeholder: (context, url) => Container(
+                              color: AppColors.placeholderBackground,
                                 child: const Center(
                                   child: CircularProgressIndicator(),
                                 ),
                               ),
-                              errorWidget: (context, url, error) => const Center(
-                                child: Icon(Icons.directions_car, size: 64, color: Colors.grey),
+                                                          errorWidget: (context, url, error) => Center(
+                              child: Icon(Icons.directions_car, size: 64, color: AppColors.placeholderIcon),
                               ),
                             )
-                          : const Center(
-                              child: Icon(Icons.directions_car, size: 64, color: Colors.grey),
+                          : Center(
+                              child: Icon(Icons.directions_car, size: 64, color: AppColors.placeholderIcon),
                             ),
                     ),
                   );
@@ -91,12 +92,12 @@ class _CarImageCarouselState extends State<CarImageCarousel> {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
                 decoration: BoxDecoration(
-                  color: Colors.black54,
+                  color: AppColors.overlayDark,
                   borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Text(
                   AppStrings.imageCounter(_currentImageIndex, widget.carImages.length),
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: AppColors.buttonPrimaryText, fontWeight: FontWeight.bold),
                 ),
               ),
             ),

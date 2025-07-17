@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/app_colors.dart';
 import '../../../domain/entities/car_entity.dart';
 
 class CarTitleSection extends StatelessWidget {
@@ -22,7 +23,7 @@ class CarTitleSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: AppColors.textSecondary,
             ),
           ),
           SizedBox(height: 8.h),
@@ -31,7 +32,7 @@ class CarTitleSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF2986F6),
+              color: AppColors.primary,
             ),
           ),
         ],

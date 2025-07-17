@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/app_colors.dart';
 
 class CarSpecRow extends StatelessWidget {
   final String label;
@@ -20,7 +21,7 @@ class CarSpecRow extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(color: Colors.grey, fontSize: 14.sp),
+            style: TextStyle(color: AppColors.textLight, fontSize: 14.sp),
           ),
           Text(
             value,

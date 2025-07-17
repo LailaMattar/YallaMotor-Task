@@ -2,6 +2,7 @@ import 'package:car_listing_app/presentation/pages/car_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'core/app_colors.dart';
 import 'core/app_strings.dart';
 import 'core/injection_container.dart' as di;
 import 'presentation/providers/car_provider.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
             title: AppStrings.appTitle,
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              colorScheme: ColorScheme.fromSeed(seedColor: AppColors.themeSeed),
               fontFamily: 'Cairo',
               useMaterial3: true,
             ),

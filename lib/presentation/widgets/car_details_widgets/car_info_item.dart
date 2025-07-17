@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/app_colors.dart';
 
 class CarInfoItem extends StatelessWidget {
   final IconData icon;
@@ -20,9 +21,9 @@ class CarInfoItem extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(icon, size: 15.sp, color: Colors.grey),
+            Icon(icon, size: 15.sp, color: AppColors.iconPrimary),
             SizedBox(width: 8.w),
-            Text(label, style: TextStyle(color: Colors.grey, fontSize: 12.sp)),
+                          Text(label, style: TextStyle(color: AppColors.textLight, fontSize: 12.sp)),
           ],
         ),
         SizedBox(height: 4.h),
