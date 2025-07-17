@@ -16,6 +16,7 @@ class CarEntity extends Equatable {
   final String transmission;
   final List<String> pictures;
   final String description;
+  final String whatsappNumber;
 
   const CarEntity({
     required this.id,
@@ -33,6 +34,7 @@ class CarEntity extends Equatable {
     required this.transmission,
     required this.pictures,
     required this.description,
+    required this.whatsappNumber,
   });
 
   @override
@@ -52,6 +54,7 @@ class CarEntity extends Equatable {
         transmission,
         pictures,
         description,
+        whatsappNumber,
       ];
 
   CarEntity copyWith({
@@ -70,6 +73,7 @@ class CarEntity extends Equatable {
     String? transmission,
     List<String>? pictures,
     String? description,
+    String? whatsappNumber,
   }) {
     return CarEntity(
       id: id ?? this.id,
@@ -87,6 +91,7 @@ class CarEntity extends Equatable {
       transmission: transmission ?? this.transmission,
       pictures: pictures ?? this.pictures,
       description: description ?? this.description,
+      whatsappNumber: whatsappNumber ?? this.whatsappNumber,
     );
   }
 } 

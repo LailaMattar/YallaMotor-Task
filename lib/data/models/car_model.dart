@@ -17,6 +17,7 @@ class CarModel extends CarEntity {
     required super.transmission,
     required super.pictures,
     required super.description,
+    required super.whatsappNumber,
   });
 
   factory CarModel.fromJson(Map<String, dynamic> json) {
@@ -50,6 +51,7 @@ class CarModel extends CarEntity {
       transmission: json['transmission_type'] ?? 'Automatic',
       pictures: picturesList,
       description: description,
+      whatsappNumber: json['whatsapp_number'] ?? '',
     );
   }
 
@@ -76,6 +78,7 @@ class CarModel extends CarEntity {
       'transmission': transmission,
       'pictures': pictures,
       'description': description,
+      'whatsapp_number': whatsappNumber,
     };
   }
 
@@ -96,6 +99,7 @@ class CarModel extends CarEntity {
       transmission: entity.transmission,
       pictures: entity.pictures,
       description: entity.description,
+      whatsappNumber: entity.whatsappNumber,
     );
   }
 } 

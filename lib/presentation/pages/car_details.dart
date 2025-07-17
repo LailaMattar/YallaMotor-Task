@@ -123,7 +123,7 @@ class CarDetailsPage extends StatelessWidget {
                 CarSellerSection(car: updatedCar),
                 
                 // Contact Button
-                const CarContactButton(),
+                CarContactButton(car: updatedCar),
                 
                 SizedBox(height: 20.h),
               ],
