@@ -56,8 +56,8 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
       backgroundColor: Colors.white,
       child: LayoutBuilder(
         builder: (context, constraints) {
-          // Use responsive breakpoint with ScreenUtil
-          bool isTabletOrDesktop = constraints.maxWidth > 600.w;
+          // Use responsive breakpoint for tablets and desktop
+          bool isTabletOrDesktop = constraints.maxWidth > 768;
           
           if (isTabletOrDesktop) {
             // Grid layout for tablets and desktop
@@ -230,7 +230,7 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
           'Cars',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 24.sp,
+            fontSize: 16.sp,
           ),
         ),
         backgroundColor: Colors.white,
@@ -241,8 +241,8 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
           labelColor: const Color(0xFF2986F6),
           unselectedLabelColor: Colors.grey,
           indicatorColor: const Color(0xFF2986F6),
-          labelStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-          unselectedLabelStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.normal),
+          labelStyle: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold),
+          unselectedLabelStyle: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.normal),
           tabs: const [
             Tab(text: 'Used Cars'),
             Tab(text: 'Featured Cars'),

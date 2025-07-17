@@ -20,11 +20,11 @@ class CarSpecRow extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(color: Colors.grey, fontSize: 16.sp),
+            style: TextStyle(color: Colors.grey, fontSize: 14.sp),
           ),
           Text(
             value,
-            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
           ),
         ],
       ),

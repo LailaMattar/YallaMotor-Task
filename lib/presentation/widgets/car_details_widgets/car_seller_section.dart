@@ -19,17 +19,17 @@ class CarSellerSection extends StatelessWidget {
         children: [
           Text(
             'Seller',
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 12.h),
           Text(
             car.sellerName.isNotEmpty ? car.sellerName : 'Unknown Seller',
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 4.h),
           Text(
             car.location,
-            style: TextStyle(color: Colors.grey, fontSize: 16.sp),
+            style: TextStyle(color: Colors.grey, fontSize: 12.sp),
           ),
         ],
       ),

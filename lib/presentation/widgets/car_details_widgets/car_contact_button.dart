@@ -86,12 +86,12 @@ class CarContactButton extends StatelessWidget {
                     ),
                   );
                 },
-          icon: Icon(Icons.message, color: Colors.white),
+          icon: Icon(Icons.message, color: Colors.white,size: 14.sp,),
           label: Text(
             car.whatsappNumber.isNotEmpty 
                 ? 'Contact via WhatsApp' 
                 : 'No Contact Available',
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
       ),

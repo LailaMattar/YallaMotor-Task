@@ -20,7 +20,7 @@ class CarTitleSection extends StatelessWidget {
           Text(
             car.title,
             style: TextStyle(
-              fontSize: 24.sp,
+              fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.black87,
             ),
@@ -29,7 +29,7 @@ class CarTitleSection extends StatelessWidget {
           Text(
             '${car.currency} ${_formatPrice(car.price)}',
             style: TextStyle(
-              fontSize: 28.sp,
+              fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Color(0xFF2986F6),
             ),

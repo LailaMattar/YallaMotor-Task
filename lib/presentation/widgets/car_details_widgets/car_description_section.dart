@@ -20,14 +20,14 @@ class CarDescriptionSection extends StatelessWidget {
         children: [
           Text(
             'Description',
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 12.h),
           car.description.isNotEmpty 
               ? HtmlWidget(
                   car.description,
                   textStyle: TextStyle(
-                    fontSize: 16.sp,
+                    fontSize: 14.sp,
                     color: Colors.black87,
                     height: 1.5,
                   ),
@@ -35,7 +35,7 @@ class CarDescriptionSection extends StatelessWidget {
               : Text(
                   'No description available for this vehicle.',
                   style: TextStyle(
-                    fontSize: 16.sp,
+                    fontSize: 14.sp,
                     color: Colors.black87,
                     height: 1.5,
                   ),

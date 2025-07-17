@@ -85,8 +85,14 @@ class CarDetailsPage extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text('Car Details', style: TextStyle(fontWeight: FontWeight.bold)),
+            title: Text('Car Details', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp,)),
             backgroundColor: Colors.white,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back, size: 16.sp), // Set your desired size here
+              onPressed: () {
+                Navigator.of(context).maybePop(); // Or Navigator.pop(context)
+              },
+            ),
             elevation: 0,
             foregroundColor: Colors.black,
             actions: [

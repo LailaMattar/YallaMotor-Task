@@ -19,62 +19,69 @@ class _CarImageCarouselState extends State<CarImageCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    // If no images available, show placeholder
-    if (widget.carImages.isEmpty) {
-      return Container(
-        height: 300.h,
-        margin: EdgeInsets.all(16.w),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.r),
-          color: Colors.grey[200],
-        ),
-        child: const Center(
-          child: Icon(Icons.directions_car, size: 64, color: Colors.grey),
-        ),
-      );
-    }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Responsive design - detect tablet vs mobile
+        bool isTablet = constraints.maxWidth > 768;
+        double imageHeight = isTablet ? 650 : 300.h;
+        BoxFit imageFit = isTablet ? BoxFit.contain : BoxFit.cover;
 
-    return Container(
-      height: 300.h,
-      child: Stack(
-        children: [
-          PageView.builder(
-            itemCount: widget.carImages.length,
-            onPageChanged: (index) {
-              setState(() {
-                _currentImageIndex = index;
-              });
-            },
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.all(16.w),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.r),
-                  color: Colors.grey[200],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12.r),
-                  child: widget.carImages[index].isNotEmpty
-                      ? CachedNetworkImage(
-                          imageUrl: widget.carImages[index],
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) => Container(
-                            color: Colors.grey[200],
-                            child: const Center(
-                              child: CircularProgressIndicator(),
+        // If no images available, show placeholder
+        if (widget.carImages.isEmpty) {
+          return Container(
+            height: imageHeight,
+            margin: EdgeInsets.all(16.w),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.r),
+              color: Colors.grey[200],
+            ),
+            child: const Center(
+              child: Icon(Icons.directions_car, size: 64, color: Colors.grey),
+            ),
+          );
+        }
+
+        return Container(
+          height: imageHeight,
+          child: Stack(
+            children: [
+              PageView.builder(
+                itemCount: widget.carImages.length,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentImageIndex = index;
+                  });
+                },
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.all(16.w),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.r),
+                      color: Colors.grey[200],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12.r),
+                      child: widget.carImages[index].isNotEmpty
+                          ? CachedNetworkImage(
+                              imageUrl: widget.carImages[index],
+                              fit: imageFit,
+                              placeholder: (context, url) => Container(
+                                color: Colors.grey[200],
+                                child: const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                              ),
+                              errorWidget: (context, url, error) => const Center(
+                                child: Icon(Icons.directions_car, size: 64, color: Colors.grey),
+                              ),
+                            )
+                          : const Center(
+                              child: Icon(Icons.directions_car, size: 64, color: Colors.grey),
                             ),
-                          ),
-                          errorWidget: (context, url, error) => const Center(
-                            child: Icon(Icons.directions_car, size: 64, color: Colors.grey),
-                          ),
-                        )
-                      : const Center(
-                          child: Icon(Icons.directions_car, size: 64, color: Colors.grey),
-                        ),
-                ),
-              );
-            },
-          ),
+                    ),
+                  );
+                },
+              ),
           // Image indicator - only show if more than one image
           if (widget.carImages.length > 1)
             Positioned(
@@ -92,8 +99,10 @@ class _CarImageCarouselState extends State<CarImageCarousel> {
                 ),
               ),
             ),
-        ],
-      ),
+          ],
+        ),
+      );
+      },
     );
   }
 } 

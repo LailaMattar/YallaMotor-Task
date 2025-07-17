@@ -20,15 +20,15 @@ class CarInfoItem extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(icon, size: 18.sp, color: Colors.grey),
+            Icon(icon, size: 15.sp, color: Colors.grey),
             SizedBox(width: 8.w),
-            Text(label, style: TextStyle(color: Colors.grey, fontSize: 14.sp)),
+            Text(label, style: TextStyle(color: Colors.grey, fontSize: 12.sp)),
           ],
         ),
         SizedBox(height: 4.h),
         Text(
           value,
-          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
         ),
         SizedBox(height: 16.h),
       ],
