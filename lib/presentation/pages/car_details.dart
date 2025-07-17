@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import '../../core/app_strings.dart';
 import '../../domain/entities/car_entity.dart';
 import '../providers/car_provider.dart';
 import '../widgets/car_details_widgets/car_image_carousel.dart';
@@ -51,8 +52,8 @@ class CarDetailsPage extends StatelessWidget {
         SnackBar(
           content: Text(
             isInFavorites
-                ? 'Removed from favorites' 
-                : 'Added to favorites',
+                ? AppStrings.removedFromFavorites
+                : AppStrings.addedToFavorites,
           ),
           duration: const Duration(seconds: 2),
           backgroundColor: isInFavorites ? Colors.grey : Colors.green,
@@ -62,7 +63,7 @@ class CarDetailsPage extends StatelessWidget {
       // Show error message if toggle fails
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Failed to update favorite status'),
+          content: Text(AppStrings.failedToUpdateFavoriteStatus),
           backgroundColor: Colors.red,
         ),
       );
@@ -85,7 +86,7 @@ class CarDetailsPage extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text('Car Details', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp,)),
+            title: Text(AppStrings.carDetails, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp,)),
             backgroundColor: Colors.white,
             leading: IconButton(
               icon: Icon(Icons.arrow_back, size: 16.sp), // Set your desired size here

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/app_strings.dart';
 import '../../../domain/entities/car_entity.dart';
 import 'car_info_item.dart';
 import 'car_spec_row.dart';
@@ -24,14 +25,14 @@ class CarSpecificationsSection extends StatelessWidget {
               Expanded(
                 child: CarInfoItem(
                   icon: Icons.local_gas_station,
-                  label: 'Fuel Type',
+                  label: AppStrings.fuelType,
                   value: car.fuel,
                 ),
               ),
               Expanded(
                 child: CarInfoItem(
                   icon: Icons.directions_car,
-                  label: 'Body Style',
+                  label: AppStrings.bodyStyle,
                   value: car.body,
                 ),
               ),
@@ -41,17 +42,17 @@ class CarSpecificationsSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Text(
-            'Specifications',
+            AppStrings.specifications,
             style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
           ),
         ),
         SizedBox(height: 16.h),
-        CarSpecRow(label: 'Transmission', value: car.transmission),
-        CarSpecRow(label: 'Engine CC', value: car.engineCC),
-        CarSpecRow(label: 'Mileage', value: '${car.mileage} km'),
-        CarSpecRow(label: 'Color', value: car.color),
-        CarSpecRow(label: 'Seats', value: car.seats),
-        CarSpecRow(label: 'Doors', value: car.doors),
+        CarSpecRow(label: AppStrings.transmission, value: car.transmission),
+        CarSpecRow(label: AppStrings.engineCC, value: car.engineCC),
+        CarSpecRow(label: AppStrings.mileage, value: AppStrings.formatMileage(car.mileage)),
+        CarSpecRow(label: AppStrings.color, value: car.color),
+        CarSpecRow(label: AppStrings.seats, value: car.seats),
+        CarSpecRow(label: AppStrings.doors, value: car.doors),
       ],
     );
   }

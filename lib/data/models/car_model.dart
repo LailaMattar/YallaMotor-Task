@@ -1,3 +1,4 @@
+import '../../core/app_strings.dart';
 import '../../domain/entities/car_entity.dart';
 
 class CarModel extends CarEntity {
@@ -44,10 +45,10 @@ class CarModel extends CarEntity {
     if (json['doors'] != null) {
       doors = json['doors'].toString();
       if (doors == '0' || doors == 'null') {
-        doors = 'N/A';
+        doors = AppStrings.notAvailable;
       }
     } else {
-      doors = 'N/A';
+      doors = AppStrings.notAvailable;
     }
 
     // Parse seats - convert to string, handle null/0 values
@@ -55,10 +56,10 @@ class CarModel extends CarEntity {
     if (json['seats'] != null) {
       seats = json['seats'].toString();
       if (seats == '0' || seats == 'null') {
-        seats = 'N/A';
+        seats = AppStrings.notAvailable;
       }
     } else {
-      seats = 'N/A';
+      seats = AppStrings.notAvailable;
     }
 
     // Parse engine CC - convert to string, handle null/0 values
@@ -66,32 +67,32 @@ class CarModel extends CarEntity {
     if (json['engine_cc'] != null) {
       engineCC = json['engine_cc'].toString();
       if (engineCC == '0' || engineCC == 'null') {
-        engineCC = 'N/A';
+        engineCC = AppStrings.notAvailable;
       } else {
-        engineCC = '${engineCC}cc';
+        engineCC = AppStrings.formatEngineCC(engineCC);
       }
     } else {
-      engineCC = 'N/A';
+      engineCC = AppStrings.notAvailable;
     }
 
     return CarModel(
       id: json['id'].toString(),
-      title: json['title'] ?? 'Unknown Car',
+      title: json['title'] ?? AppStrings.unknownCar,
       price: json['price'].toString(),
-      currency: 'AED', // Default currency
+      currency: AppStrings.defaultCurrency,
       year: json['year'].toString(),
-      location: json['city'] ?? 'UAE',
-      fuel: json['fuel_type'] ?? 'Petrol',
-      body: json['body_style'] ?? 'Unknown',
+      location: json['city'] ?? AppStrings.defaultLocation,
+      fuel: json['fuel_type'] ?? AppStrings.defaultFuelType,
+      body: json['body_style'] ?? AppStrings.unknown,
       image: json['slideshow_picture'] ?? '',
       isFavorite: false, // Default to false since API doesn't have this
       mileage: json['km_driven'].toString(),
-      color: json['exterior_color'] ?? 'Unknown',
-      transmission: json['transmission_type'] ?? 'Automatic',
+      color: json['exterior_color'] ?? AppStrings.unknown,
+      transmission: json['transmission_type'] ?? AppStrings.defaultTransmission,
       pictures: picturesList,
       description: description,
       whatsappNumber: json['whatsapp_number'] ?? '',
-      sellerName: json['seller_name'] ?? 'Unknown Seller',
+      sellerName: json['seller_name'] ?? AppStrings.unknownSeller,
       doors: doors,
       seats: seats,
       engineCC: engineCC,

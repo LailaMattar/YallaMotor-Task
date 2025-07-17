@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import '../../core/app_strings.dart';
 import '../../domain/entities/car_entity.dart';
 import '../providers/car_provider.dart';
 import '../widgets/car_card.dart';
@@ -184,7 +185,7 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
                 ),
                 SizedBox(height: 16.h),
                 Text(
-                  'Failed to load cars',
+                  AppStrings.failedToLoadCars,
                   style: TextStyle(
                     fontSize: 18.sp,
                     color: Colors.red,
@@ -192,7 +193,7 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
                 ),
                 SizedBox(height: 8.h),
                 Text(
-                  'Pull down to refresh or tap retry',
+                  AppStrings.pullDownToRefreshOrRetry,
                   style: TextStyle(
                     fontSize: 14.sp,
                     color: Colors.grey[600],
@@ -210,7 +211,7 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
                     ),
                   ),
                   child: Text(
-                    'Retry',
+                    AppStrings.retry,
                     style: TextStyle(fontSize: 16.sp),
                   ),
                 ),
@@ -227,7 +228,7 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Cars',
+          AppStrings.cars,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16.sp,
@@ -244,8 +245,8 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
           labelStyle: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold),
           unselectedLabelStyle: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.normal),
           tabs: const [
-            Tab(text: 'Used Cars'),
-            Tab(text: 'Featured Cars'),
+            Tab(text: AppStrings.usedCars),
+            Tab(text: AppStrings.featuredCars),
           ],
         ),
       ),
@@ -273,9 +274,9 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
                 controller: _tabController,
                 children: [
                   // Used Cars Tab - No Data
-                  _buildEmptyState('No used cars available', 'Pull down to refresh'),
+                  _buildEmptyState(AppStrings.noUsedCarsAvailable, AppStrings.pullDownToRefresh),
                   // Featured Cars Tab - No Data
-                  _buildEmptyState('No featured cars available', 'Pull down to refresh'),
+                  _buildEmptyState(AppStrings.noFeaturedCarsAvailable, AppStrings.pullDownToRefresh),
                 ],
               );
             
@@ -296,9 +297,9 @@ class _CarListPageState extends State<CarListPage> with SingleTickerProviderStat
                 controller: _tabController,
                 children: [
                   // Used Cars Tab - Initial
-                  _buildEmptyState('Welcome to Cars App', 'Pull down to load cars'),
+                  _buildEmptyState(AppStrings.welcomeToCarsApp, AppStrings.pullDownToLoadCars),
                   // Featured Cars Tab - Initial
-                  _buildEmptyState('Welcome to Featured Cars', 'Pull down to load featured cars'),
+                  _buildEmptyState(AppStrings.welcomeToFeaturedCars, AppStrings.pullDownToLoadFeaturedCars),
                 ],
               );
           }

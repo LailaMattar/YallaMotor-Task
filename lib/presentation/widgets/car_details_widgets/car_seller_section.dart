@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/app_strings.dart';
 import '../../../domain/entities/car_entity.dart';
 
 class CarSellerSection extends StatelessWidget {
@@ -18,12 +19,12 @@ class CarSellerSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Seller',
+            AppStrings.seller,
             style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 12.h),
           Text(
-            car.sellerName.isNotEmpty ? car.sellerName : 'Unknown Seller',
+            car.sellerName.isNotEmpty ? car.sellerName : AppStrings.unknownSeller,
             style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 4.h),

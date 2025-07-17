@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import '../../../core/app_strings.dart';
 import '../../../domain/entities/car_entity.dart';
 
 class CarDescriptionSection extends StatelessWidget {
@@ -19,7 +20,7 @@ class CarDescriptionSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Description',
+            AppStrings.description,
             style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 12.h),
@@ -33,7 +34,7 @@ class CarDescriptionSection extends StatelessWidget {
                   ),
                 )
               : Text(
-                  'No description available for this vehicle.',
+                  AppStrings.noDescriptionAvailable,
                   style: TextStyle(
                     fontSize: 14.sp,
                     color: Colors.black87,

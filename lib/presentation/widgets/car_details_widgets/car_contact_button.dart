@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../core/app_strings.dart';
 import '../../../domain/entities/car_entity.dart';
 
 class CarContactButton extends StatelessWidget {
@@ -31,7 +32,12 @@ class CarContactButton extends StatelessWidget {
 
     // Create pre-filled message
     final String message = Uri.encodeComponent(
-        'Hi! I am interested in your ${car.title} (${car.year}) listed for ${car.currency} ${car.price}. Is it still available?');
+        AppStrings.whatsAppMessage(
+          carTitle: car.title,
+          carYear: car.year,
+          currency: car.currency,
+          price: car.price,
+        ));
 
     // Platform-specific URLs
     var androidUrl = "whatsapp://send?phone=$formattedNumber&text=$message";
@@ -72,7 +78,7 @@ class CarContactButton extends StatelessWidget {
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('WhatsApp is not installed or failed to open'),
+                        content: Text(AppStrings.whatsAppNotInstalled),
                         backgroundColor: Colors.red,
                       ),
                     );
@@ -81,7 +87,7 @@ class CarContactButton extends StatelessWidget {
               : () {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('No WhatsApp number available for this car'),
+                      content: Text(AppStrings.noWhatsAppNumber),
                       backgroundColor: Colors.orange,
                     ),
                   );
@@ -89,8 +95,8 @@ class CarContactButton extends StatelessWidget {
           icon: Icon(Icons.message, color: Colors.white,size: 14.sp,),
           label: Text(
             car.whatsappNumber.isNotEmpty 
-                ? 'Contact via WhatsApp' 
-                : 'No Contact Available',
+                ? AppStrings.contactViaWhatsApp
+                : AppStrings.noContactAvailable,
             style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),

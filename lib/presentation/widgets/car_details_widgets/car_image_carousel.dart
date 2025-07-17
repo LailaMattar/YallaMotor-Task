@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import '../../../core/app_strings.dart';
 
 class CarImageCarousel extends StatefulWidget {
   final List<String> carImages;
@@ -94,7 +95,7 @@ class _CarImageCarouselState extends State<CarImageCarousel> {
                   borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Text(
-                  '${_currentImageIndex + 1} / ${widget.carImages.length}',
+                  AppStrings.imageCounter(_currentImageIndex, widget.carImages.length),
                   style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
