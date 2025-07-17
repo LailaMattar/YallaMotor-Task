@@ -30,18 +30,32 @@ class CarDetailsPage extends StatelessWidget {
 
   void _toggleFavorite(BuildContext context) async {
     try {
-      await context.read<CarProvider>().toggleCarFavorite(car.id);
+      // Get current state BEFORE toggling to show correct message
+      final carProvider = context.read<CarProvider>();
+      CarEntity currentCar = car;
       
-      // Show feedback to user
+      // Try to get the most recent state from provider
+      try {
+        currentCar = carProvider.cars.firstWhere((c) => c.id == car.id);
+      } catch (e) {
+        // Car not found in provider, use original car
+        currentCar = car;
+      }
+      
+      final bool isInFavorites = currentCar.isFavorite;
+      
+      await carProvider.toggleCarFavorite(car.id);
+      
+      // Show feedback to user based on the action that was performed
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            car.isFavorite 
+            isInFavorites
                 ? 'Removed from favorites' 
                 : 'Added to favorites',
           ),
           duration: const Duration(seconds: 2),
-          backgroundColor: car.isFavorite ? Colors.grey : Colors.green,
+          backgroundColor: isInFavorites ? Colors.grey : Colors.green,
         ),
       );
     } catch (e) {
